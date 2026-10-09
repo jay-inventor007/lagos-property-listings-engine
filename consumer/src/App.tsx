@@ -76,13 +76,14 @@ export function App() {
   };
 
   // The box updates on every keystroke but only reaches `filters` after typing pauses, so one
-  // request goes out per pause rather than per character. A single character is held back,
-  // because the API requires at least two.
+  // request goes out per pause rather than per character. If the search query drops below two
+  // characters (e.g. backspacing to 1 character or empty), the filter resets to empty string
+  // so the displayed results stay in sync and show all listings.
   useEffect(() => {
     const q = search.trim();
-    if (q.length === 1) return;
+    const effectiveQ = q.length >= 2 ? q : '';
     const timer = setTimeout(() => {
-      setFilters((f) => (f.q === q ? f : { ...f, q }));
+      setFilters((f) => (f.q === effectiveQ ? f : { ...f, q: effectiveQ }));
       setCursors([null]);
     }, 350);
     return () => clearTimeout(timer);
