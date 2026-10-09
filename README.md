@@ -1,12 +1,19 @@
-﻿# Property Listings API
+# Lagos Property Listings Engine
 
-A public, read-mostly REST API for a Nigerian residential property market: estate agencies, the
-agents who work for them, the properties those agents list for sale or rent, and viewing requests
-made against those listings. Anyone can call it; no key or account is needed to read.
+> **A high-performance Nigerian real estate search and viewing orchestration API built with Express, TypeScript, and PostgreSQL. Features deterministic keyset cursor pagination, in-memory IP rate limiting, full-text search, and an interactive React consumer.**
 
-- **Live API:** `https://property-listings-api-el8s.onrender.com/api/v1`
-- **Consumer:** [`consumer/`](consumer/), a single page that calls the live API
-- **Seed script:** [`api/scripts/seed.ts`](api/scripts/seed.ts)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15+-336791.svg)](https://www.postgresql.org/)
+[![Live Deployment](https://img.shields.io/badge/Render-Live-brightgreen.svg)](https://property-listings-api-el8s.onrender.com/api/v1)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+---
+
+A public, read-mostly REST API for the Nigerian residential property market (Lagos, Abuja, Port Harcourt): estate agencies, their licensed agents, residential properties for sale or rent, and real-time viewing appointment requests. Anyone can call it; no API key or account is required to consume read endpoints.
+
+- **Live API Endpoint:** `https://property-listings-api-el8s.onrender.com/api/v1`
+- **Consumer Interface:** [`consumer/`](consumer/), a high-performance React application consuming the live API
+- **Automated Seed:** [`api/scripts/seed.ts`](api/scripts/seed.ts) (200 agencies, 600 agents, 1,000 listings)
 
 Try it:
 
